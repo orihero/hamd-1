@@ -1,0 +1,12 @@
+.payment_all {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 60px;
+  grid-gap: 5px;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9c9c9c;
+  }
+}

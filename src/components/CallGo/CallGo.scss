@@ -1,0 +1,24 @@
+.callGo {
+  a {
+    text-decoration: none;
+    background-color: #7e94e2;
+    margin-top: 20px;
+  }
+  .div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      margin-left: 35px;
+      color: white;
+    }
+    .span {
+      display: block;
+      margin-bottom: 15px;
+      color: white;
+    }
+    span {
+      color: green;
+    }
+  }
+}
