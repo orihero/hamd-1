@@ -1,25 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import ArrowLeft from "../../assets/img/arrow-left.svg";
 import Back from "../Back";
 import "./Foods.scss";
-
-const foods = [
-  "Гамбургер",
-  "Лаваш",
-  "Лаваш с сыром",
-  "Хот дог королевский",
-  "Хот дог",
-  "Чизбургер",
-];
+import axios from "axios";
 
 const Foods = () => {
+  const [product, setProduct] = useState([""]);
+
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://hamd.loko.uz/api/operator/product"
+      );
+      setProduct(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="allFoods">
       <Back />
-      {foods.map((item) => (
-        <div className="div">
-          <NavLink to={"/main/payment"}>{item}</NavLink>
+      {product.map((item, ind) => (
+        <div
+          key={ind}
+          onClick={() => {
+            console.log({ item });
+          }}
+          className="div"
+        >
+          {item.name}
         </div>
       ))}
     </div>

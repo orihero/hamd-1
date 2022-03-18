@@ -1,9 +1,10 @@
 .allFoods {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px 100px 100px;
   grid-gap: 5px;
   margin-left: 2px;
+  overflow: scroll;
+  height: 258px;
 
   div {
     background-color: #849ec8;
@@ -11,6 +12,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    height: 60px;
     a {
       text-decoration: none;
       text-align: center;

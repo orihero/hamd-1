@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import Back from "../Back";
-import Call from "../Call/Call";
+
+// import Back from "../Back";
+// import Call from "../Call/Call";
 const FirstBar = () => {
   return (
     <>
@@ -11,7 +12,7 @@ const FirstBar = () => {
             <NavLink to={"/main/bar"}>Новый заказ</NavLink>
           </div>
           <div>
-            <NavLink to={"call"}>Информация о звонке</NavLink>
+            <NavLink to={"/main/call"}>Информация о звонке</NavLink>
           </div>
         </div>
       </div>

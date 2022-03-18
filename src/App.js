@@ -1,22 +1,38 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Bar from "./components/Bar";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AllProduct from "./components/AllProduct";
 import BarAside from "./components/BarAside/BarAside";
 import BarKuxnya from "./components/BarKuxnya/BarKuxnya";
 import BarMain from "./components/BarMain/BarMain";
 import Call from "./components/Call/Call";
 import FirstBar from "./components/FirstBar/FirstBar";
-import Foods from "./components/Foods/Foods";
 import Payment from "./components/Payment/Payment";
+import Auth from "./components/LoginPage/Auth";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken } from "./store/profileSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.profile);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    dispatch(setToken(token));
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/main"} element={<MainPage />}>
+        <Route
+          path={"*"}
+          element={<Navigate to={!token ? "login" : "main/first"} />}
+        />
+        <Route path={"login"} element={<Auth />} />
+        <Route path={"main"} element={<MainPage />}>
           <Route path={"first"} element={<FirstBar />} />
-          <Route path={"first/call"} element={<Call />} />
+          <Route path={"call"} element={<Call />} />
           <Route path={"bar"} element={<BarKuxnya />} />
-          <Route path={"foods"} element={<Foods />} />
+          <Route path={"allFoods/:categoryId"} element={<AllProduct />} />
           <Route path={"payment"} element={<Payment />} />
         </Route>
       </Routes>
@@ -36,16 +52,3 @@ const MainPage = () => {
     </div>
   );
 };
-
-// {
-/* <div className="i-modal ">
-	<div className="i-modal-box p-4">
-		<img src="assets/img/danger.svg" alt="">
-		<p className="mb-3">Подтвердить</p>
-		<p className="mb-3">Вы хотите оплатить чек с помощью “ Сум “?</p>
-		<p className="d-flex">
-			<a className="px-4 pt-2 pb-2 mx-3" href="#">Да</a>
-			<a className="px-4 pt-2 pb-2 mx-3 not" href="#">Нет</a>
-		</p>
-	</div>
-	</div> */
