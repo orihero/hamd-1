@@ -37,9 +37,6 @@ const Modal = ({ closeModal }) => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   return (
     <>
       <div className="i-modal">
@@ -47,8 +44,10 @@ const Modal = ({ closeModal }) => {
           <img src={danger} alt="" />
           <p className="mb-3">Подтвердить</p>
           <p className="mb-3">Вы хотите оплатить чек с помощью “ Сум “?</p>
-          <p onClick={fetchData} className="d-flex">
-            <a href="#">Да</a>
+          <p className="d-flex">
+            <a onClick={fetchData} href="#">
+              Да
+            </a>
             <a href="#">Нет</a>
           </p>
         </div>

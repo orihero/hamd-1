@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./BarAside.scss";
 import succes from "../../assets/img/check-succes.svg";
 import xclosesvg from "../../assets/img/Xclosesvg.svg";
@@ -22,6 +22,9 @@ const BarAside = () => {
   const filter = () => {
     dispatch(clearOrder(meals));
   };
+
+  // const mealsId = meals.map((item) => item.id);
+
   return (
     <div className="bar-aside">
       <div className="bar-aside-head">
@@ -33,9 +36,11 @@ const BarAside = () => {
               </>
             ))}
           </div>
-          <div>
+          <div className="bar_main_bot">
             {count.map((item) => (
-              <p>{item}</p>
+              <>
+                <p>{item}</p>
+              </>
             ))}
           </div>
         </div>

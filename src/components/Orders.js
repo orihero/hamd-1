@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-
   useEffect(() => {
     setInterval(() => fetchData(), 1000);
   }, []);
@@ -13,7 +13,6 @@ const Orders = () => {
         "http://hamd.loko.uz/api/operator/orders"
       );
       setOrders(data.data);
-      console.log(orders);
     } catch (error) {
       console.log(error);
     }
@@ -34,9 +33,16 @@ const Orders = () => {
           {item.orderProducts &&
             item.orderProducts.map((item) => (
               <p className="gamburger">
-                {item.count} {item.product.name}
+                {item.product.name} ... {item.count} ... {item.product.price}{" "}
+                сум
               </p>
             ))}
+          {
+            <p className="itog">
+              <span>Итог......</span>
+              <span>{item.product_total_sum} сум</span>
+            </p>
+          }
         </>
       ))}
     </div>

@@ -12,14 +12,6 @@ const AllProduct = () => {
   const { categoryId } = useParams();
   const dispacht = useDispatch();
 
-  //   const meals = useSelector((state) => state.order.meals);
-  //   const initialState = 0;
-  //   const allSum = meals.reduce(
-  //     (amount, meal) => amount + meal.amount * meal.price,
-  //     initialState
-  //   );
-  //   console.log(allSum);
-
   const mealAdd = (product) => {
     const meal = {
       id: product.id,

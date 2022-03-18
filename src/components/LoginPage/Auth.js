@@ -5,7 +5,7 @@ import "./LoginPage.scss";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Button } from "antd";
-import { setProfile, setToken } from "../../store/profileSlice";
+import { setToken } from "../../store/profileSlice";
 
 const Auth = () => {
   const dispatch = useDispatch();

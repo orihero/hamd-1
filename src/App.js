@@ -10,11 +10,10 @@ import Auth from "./components/LoginPage/Auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "./store/profileSlice";
-
+import Logout from "./components/Logout/Logout";
 function App() {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.profile);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     dispatch(setToken(token));
@@ -44,11 +43,14 @@ export default App;
 
 const MainPage = () => {
   return (
-    <div className="wrapper">
-      <div className="i-container">
-        <BarMain />
-        <BarAside />
+    <>
+      <div className="wrapper">
+        <div className="i-container">
+          <BarMain />
+          <BarAside />
+        </div>
+        <Logout />
       </div>
-    </div>
+    </>
   );
 };

@@ -19,17 +19,6 @@ const Curiers = () => {
     dispatch(getCuriers());
   }, []);
 
-  // if (data.isLoading) {
-  //   return (
-  //     <ReactLoading
-  //       className="loadingFoods"
-  //       width={80}
-  //       type="spinningBubbles"
-  //       color={"#849ec8"}
-  //     />
-  //   );
-  // }
-
   return (
     <>
       <div className="couriers">

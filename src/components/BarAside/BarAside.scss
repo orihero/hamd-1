@@ -18,24 +18,6 @@
       background-color: #849ec8;
       color: white;
       border-radius: 5px;
-      div {
-        p {
-          margin: 0;
-          padding: 10px;
-          font-size: 18px;
-          font-weight: bold;
-          &:first-child {
-            padding-top: 20px;
-          }
-          &:last-child {
-            padding-bottom: 20px;
-          }
-        }
-      }
-    }
-    input {
-      width: 97%;
-      outline: none;
     }
   }
   .calc-center {
