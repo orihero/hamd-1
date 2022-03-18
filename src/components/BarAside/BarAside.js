@@ -2,10 +2,12 @@ import React from "react";
 import "./BarAside.scss";
 import succes from "../../assets/img/check-succes.svg";
 import xclosesvg from "../../assets/img/Xclosesvg.svg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { clearOrder } from "../../store/orderSlice";
 
 const BarAside = () => {
+  const dispatch = useDispatch();
   const meals = useSelector((state) => state.order.meals);
   const initialState = 0;
   const initial = "";
@@ -17,6 +19,9 @@ const BarAside = () => {
 
   const count = meals.map((item) => item.amount, initial);
 
+  const filter = () => {
+    dispatch(clearOrder(meals));
+  };
   return (
     <div className="bar-aside">
       <div className="bar-aside-head">
@@ -43,7 +48,7 @@ const BarAside = () => {
           <img src={succes} alt="" />
         </NavLink>
         <NavLink className="img-2" to={"/main/first"}>
-          <img src={xclosesvg} alt="" />
+          <img onClick={filter} src={xclosesvg} alt="" />
         </NavLink>
       </div>
     </div>
