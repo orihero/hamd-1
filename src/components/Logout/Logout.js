@@ -9,7 +9,7 @@ const Logout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutButton = () => {
-    localStorage.clear("token");
+    localStorage.removeItem("token");
     navigate("/");
     dispatch(clearOrder(meals));
   };

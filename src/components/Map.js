@@ -49,7 +49,6 @@ const AllCurierMap = () => {
             return (
               <Marker
                 key={index}
-                icon={Car}
                 onClick={() => {
                   console.log({ id: item.id });
                 }}

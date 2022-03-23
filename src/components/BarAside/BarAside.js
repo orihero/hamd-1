@@ -7,8 +7,10 @@ import { NavLink } from "react-router-dom";
 import { clearOrder } from "../../store/orderSlice";
 
 const BarAside = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(0);
   const meals = useSelector((state) => state.order.meals);
+  // const products_amount = meals.map((item) => item.amount);
+  // console.log(products_amount, "product amount");
   const initialState = 0;
   const initial = "";
   const allSum = meals.reduce(
@@ -22,8 +24,6 @@ const BarAside = () => {
   const filter = () => {
     dispatch(clearOrder(meals));
   };
-
-  // const mealsId = meals.map((item) => item.id);
 
   return (
     <div className="bar-aside">
