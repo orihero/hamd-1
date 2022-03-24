@@ -11,7 +11,7 @@ const Orders = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        "http://hamd.loko.uz/api/operator/orders"
+        "https://hamd.loko.uz/api/operator/orders"
       );
       setOrders(data.data);
     } catch (error) {
@@ -30,7 +30,7 @@ const Orders = () => {
     };
     try {
       const { data } = await axios.post(
-        "http://hamd.loko.uz/api/operator/order-remove",
+        "https://hamd.loko.uz/api/operator/order-remove",
         payload
       );
       setOrders(data.data);

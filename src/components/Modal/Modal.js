@@ -29,7 +29,7 @@ const Modal = ({ closeModal }) => {
     navigate("/main/bar");
     try {
       const { data } = await axios.post(
-        "http://hamd.loko.uz/api/operator/order-new",
+        "https://hamd.loko.uz/api/operator/order-new",
         payload
       );
 
