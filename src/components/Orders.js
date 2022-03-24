@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ReactLoading from "react-loading";
+import { DeleteOutlined } from "@ant-design/icons";
+
 import axios from "axios";
 const Orders = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     setInterval(() => fetchData(), 1000);
@@ -10,15 +10,12 @@ const Orders = () => {
 
   const fetchData = async () => {
     try {
-      setIsLoading(true);
       const { data } = await axios.get(
         "http://hamd.loko.uz/api/operator/orders"
       );
       setOrders(data.data);
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -26,16 +23,21 @@ const Orders = () => {
     fetchData();
   }, []);
 
-  // const deleteId = async (id) => {
-  //   try {
-  //     const { data } = await axios.delete(
-  //       `http://hamd.loko.uz/api/operator/orders/${id}`
-  //     );
-  //     setOrders(data.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const deleteId = async (id) => {
+    const order_id = orders.filter((item) => item.id === id);
+    const payload = {
+      order_id: order_id,
+    };
+    try {
+      const { data } = await axios.post(
+        "http://hamd.loko.uz/api/operator/order-remove",
+        payload
+      );
+      setOrders(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="main_bottom_orders">
@@ -57,20 +59,23 @@ const Orders = () => {
               <p className="itog">
                 <span>Итог......</span>
                 <span>{item.product_total_sum} сум</span>
+                <div className="delete" onClick={() => deleteId(item.id)}>
+                  <DeleteOutlined style={{ fontSize: "30px" }} />
+                </div>
               </p>
             }
           </>
         ))}
-        <div className="loading">
+        {/* <div className="loading">
           {isLoading && (
             <ReactLoading
               className="loadingFoods"
               width={80}
               type="spinningBubbles"
-              color={"#849ec8"}
+              color={"white"}
             />
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );

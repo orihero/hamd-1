@@ -49,30 +49,10 @@ const Auth = () => {
         onFinish={login}
         onFinishFailed={onFinishFailed}
       >
-        <Form.Item
-          // label="login"
-
-          name="login"
-          // rules={[
-          //   {
-          //     type: "text",
-          //     required: true,
-          //     message: "Please input your username!",
-          //   },
-          // ]}
-        >
+        <Form.Item name="login">
           <Input placeholder="Логин" />
         </Form.Item>
-        <Form.Item
-          // label="Password"
-          name="password"
-          // rules={[
-          //   {
-          //     required: false,
-          //     message: "Please input your password!",
-          //   },
-          // ]}
-        >
+        <Form.Item name="password">
           <Input.Password placeholder="Пароль" />
         </Form.Item>
         <Form.Item

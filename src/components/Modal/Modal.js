@@ -4,14 +4,15 @@ import danger from "../../assets/img/danger.svg";
 import axios from "axios";
 import "./Modal.scss";
 import { clearOrder } from "../../store/orderSlice";
+import { useNavigate } from "react-router-dom";
+
 const Modal = ({ closeModal }) => {
   const meals = useSelector((state) => state.order.meals);
-
+  const navigate = useNavigate();
   const products_id = meals.map((item) => item.id);
+  console.log(products_id);
   const products_amount = meals.map((item) => item.amount);
-
   const dispatch = useDispatch();
-
   const fetchData = async () => {
     const payload = {
       name: "Texron",
@@ -25,12 +26,13 @@ const Modal = ({ closeModal }) => {
       delivery_type_id: 12,
     };
     dispatch(clearOrder());
-
+    navigate("/main/bar");
     try {
       const { data } = await axios.post(
         "http://hamd.loko.uz/api/operator/order-new",
         payload
       );
+
       console.log(data);
     } catch (error) {
       console.log(error);
