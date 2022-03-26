@@ -43,7 +43,7 @@ const Curiers = () => {
                   {item.courier.name ?? "NE UKAZANO"}
                 </p>
                 <p>
-                  <span>ID заказа:</span>#{item.courier.id}
+                  <span>ID заказа:</span>#{item.id}
                 </p>
                 <p>
                   <span>Маршрут:</span>

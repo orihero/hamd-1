@@ -36,7 +36,7 @@ const AllCurierMap = () => {
 
   return (
     <div className="map">
-      <LoadScript>
+      <LoadScript googleMapsApiKey="AIzaSyAgt640vavAQNsK5G0e06laoOGmOBMPmvg">
         <GoogleMap
           mapContainerStyle={containerStyle}
           zoom={10}
