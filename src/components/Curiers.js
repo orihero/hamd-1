@@ -4,6 +4,7 @@ import CurierImg from "../assets/img/courier.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { getCuriers } from "../store/kurierSlice";
 import ReactLoading from "react-loading";
+import { addModal } from "../store/kurierSlice";
 
 const Curiers = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,15 @@ const Curiers = () => {
     dispatch(getCuriers());
   }, []);
 
+  const curierAdd = (product) => {
+    const curier = {
+      id: product.id,
+      name: product.name,
+      addres: product.address,
+      map_location: product.map_location,
+    };
+    dispatch(addModal(curier));
+  };
   return (
     <>
       <div className="couriers">
@@ -35,7 +45,7 @@ const Curiers = () => {
         </div>
         <div className="all_curier">
           {data.curiers.map((item, id) => (
-            <div className="courier" key={id}>
+            <div className="courier" key={id} onClick={() => curierAdd(item)}>
               <img src={CurierImg} alt="" />
               <div className="courier-info">
                 <p>

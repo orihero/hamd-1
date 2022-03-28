@@ -7,6 +7,8 @@ import AllCurierMap from "../Map";
 import { NavLink } from "react-router-dom";
 
 const BarMain = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="bar-main">
@@ -21,8 +23,8 @@ const BarMain = () => {
           </div>
           <AllCurierMap />
           <Curiers />
-          <div className="left-bottom">
-            <NavLink to={"/main/bar"}>Кухня</NavLink>
+          <div onClick={() => navigate("/main/bar")} className="left-bottom">
+            <div>Кухня</div>
           </div>
         </div>
         <div className="bar-main-right">

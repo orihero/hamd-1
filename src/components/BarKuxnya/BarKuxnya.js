@@ -33,8 +33,12 @@ function BarKuxnya() {
         <Back />
         {categoryProduct.map((item, index) => (
           <>
-            <div key={index} className="div">
-              <NavLink to={`/main/allFoods/${item.id}`}>{item.name}</NavLink>
+            <div
+              onClick={() => navigate(`/main/allFoods/${item.id}`)}
+              key={index}
+              className="div"
+            >
+              {item.name}
             </div>
           </>
         ))}

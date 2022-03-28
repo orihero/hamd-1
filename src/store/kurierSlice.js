@@ -5,6 +5,7 @@ const initialState = {
   isLoading: true,
   curiers: [],
   isError: false,
+  courier: null,
 };
 
 export const getCuriers = createAsyncThunk(
@@ -27,6 +28,12 @@ export const curierSlice = createSlice({
   name: "curiers",
   initialState,
   reducers: {
+    addModal: (state, action) => {
+      return {
+        ...state,
+        courier: action.payload,
+      };
+    },
     setCuriers: (state, action) => {
       state.curiers = action.payload;
     },
@@ -41,5 +48,5 @@ export const curierSlice = createSlice({
   },
 });
 
-export const { setCuriers, setLoading } = curierSlice.actions;
+export const { setCuriers, setLoading, addModal } = curierSlice.actions;
 export default curierSlice.reducer;

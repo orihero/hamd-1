@@ -36,7 +36,7 @@ const Auth = () => {
   return (
     <>
       <h1>
-        r<span>_</span>keeper
+        <span style={{ color: "black" }}>HAMD</span>
       </h1>
       <Form
         name="basic"
