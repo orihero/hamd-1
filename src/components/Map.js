@@ -23,6 +23,7 @@ const AllCurierMap = () => {
   const apiKey = "AIzaSyAgt640vavAQNsK5G0e06laoOGmOBMPmvg";
 
   const curier = useSelector((state) => state.curier.courier);
+  console.log(curier);
   const [map, setMap] = React.useState(null);
   const onLoad = React.useCallback(function callback(map) {
     setMap(map);

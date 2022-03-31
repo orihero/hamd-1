@@ -21,7 +21,6 @@ const AllProduct = () => {
     };
     dispacht(addMeal(meal));
   };
-  console.log(mealAdd);
 
   const fetchData = async () => {
     try {
